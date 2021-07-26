@@ -16,13 +16,18 @@
         cookie.setCookie()
 
         setTimeout( () => {
-            var expires = new Date(Date.now()+12*60*60*1000).toUTCString()
-            cookie.setExpiration(expires, true)
+            var value = "testBla"
+            cookie.setValue(value)
         }, 5000)
 
         setTimeout( () => {
-            cookie.delete()
+            var expires = new Date(Date.now()+12*60*60*1000).toUTCString()
+            cookie.setExpiration(expires, true)
         }, 10000)
+
+        setTimeout( () => {
+            cookie.delete()
+        }, 15000)
     </script>
 
 </body>
