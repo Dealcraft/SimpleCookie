@@ -11,7 +11,7 @@
     
     <script>
         var expires = new Date(Date.now()+24*60*60*1000).toUTCString()
-        var cookie = new SimpleCookie("name", "value", expires)
+        const cookie = new SimpleCookie("name", "value", expires)
         
         cookie.setCookie()    
     </script>

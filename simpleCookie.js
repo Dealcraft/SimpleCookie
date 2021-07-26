@@ -28,21 +28,21 @@ class SimpleCookie {
     }
 
     setCookie(){
-        cookie = ''
-        cookie += this.name + '=' + this.value
-        cookie += ';'
+        var _cookie = ''
+        _cookie += this.name + '=' + this.value
+        _cookie += ';'
         if(this.expires !== null && this.expires !== undefined){
-            cookie += 'expires=' + this.expires
-            cookie += ';'
+            _cookie += 'expires=' + this.expires
+            _cookie += ';'
         }
-        cookie += 'SameSite=' + this.sameSite
-        cookie += ';'
-        cookie += this.secure ? 'Secure;' : ''
-        cookie += 'domain=' + this.domain
-        cookie += ';'
-        cookie += 'path=' + this.path
-        cookie += ';'
+        _cookie += 'SameSite=' + this.sameSite
+        _cookie += ';'
+        _cookie += this.secure ? 'Secure;' : ''
+        _cookie += 'domain=' + this.domain
+        _cookie += ';'
+        _cookie += 'path=' + this.path
+        _cookie += ';'
 
-        document.cookie = cookie
+        document.cookie = _cookie
     }
 }
