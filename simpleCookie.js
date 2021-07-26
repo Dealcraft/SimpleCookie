@@ -1,33 +1,48 @@
 class SimpleCookie {
     name
     value
-    domain
-    path
     expires
-    secure
-    httpOnly
     sameSite
+    secure
+    domain 
+    path
 
 
     /**
      * @param {String} name
      * @param {String} value
+     * @param {String} expires
+     * @param {String} sameSite
+     * @param {Boolean} secure
      * @param {String} domain
      * @param {String} path
-     * @param {String} expires
-     * @param {String} secure
-     * @param {String} httpOnly
-     * @param {String} sameSite
      */
-    constructor(name, value, domain, path='/', expires=`${Date.now().toUTCString()}`, secure, httpOnly, sameSite='Lax'){
+    constructor(name, value, expires, sameSite='Lax', secure=false, domain=`${window.location.hostname}`, path=`${window.location.pathname}`) {
         this.name = name
         this.value = value
+        this.expires = expires
+        this.sameSite = sameSite
+        this.secure = secure
         this.domain = domain
         this.path = path
-        this.expires = expires
-        this.secure = secure
-        this.httpOnly = httpOnly
-        this.sameSite = sameSite
     }
 
+    setCookie(){
+        cookie = ''
+        cookie += this.name + '=' + this.value
+        cookie += ';'
+        if(this.expires !== null && this.expires !== undefined){
+            cookie += 'expires=' + this.expires
+            cookie += ';'
+        }
+        cookie += 'SameSite=' + this.sameSite
+        cookie += ';'
+        cookie += this.secure ? 'Secure;' : ''
+        cookie += 'domain=' + this.domain
+        cookie += ';'
+        cookie += 'path=' + this.path
+        cookie += ';'
+
+        document.cookie = cookie
+    }
 }
