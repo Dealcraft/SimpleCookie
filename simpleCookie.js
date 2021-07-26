@@ -46,6 +46,13 @@ class SimpleCookie {
         document.cookie = _cookie
     }
 
+    setValue(value, refresh=true){
+        this.value = value
+        if (refresh) {
+            this.setCookie()
+        }
+    }
+
     delete(){
         if (document.cookie.split(';').some((item) => item.trim().startsWith(this.name + '='))) {
             var _expires = new Date(Date.now()-24*60*60*1000).toUTCString()
