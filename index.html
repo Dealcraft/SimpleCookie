@@ -4,11 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="simpleCookie.js" defer></script>
+    <script src="simpleCookie.js"></script>
     <title>SimpleCookie Example</title>
 </head>
 <body>
     
+    <script>
+        var expires = new Date(Date.now()+24*60*60*1000).toUTCString()
+        const cookie = new SimpleCookie("name", "value", expires)
+        
+        cookie.setCookie()
+
+        setTimeout( () => {
+            var value = "testBla"
+            cookie.setValue(value)
+        }, 5000)
+
+        setTimeout( () => {
+            var expires = new Date(Date.now()+12*60*60*1000).toUTCString()
+            cookie.setExpiration(expires, true)
+        }, 10000)
+
+        setTimeout( () => {
+            cookie.delete()
+        }, 15000)
+    </script>
 
 </body>
 </html>
