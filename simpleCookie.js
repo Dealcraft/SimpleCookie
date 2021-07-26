@@ -45,4 +45,13 @@ class SimpleCookie {
 
         document.cookie = _cookie
     }
+
+    delete(){
+        if (document.cookie.split(';').some((item) => item.trim().startsWith(this.name + '='))) {
+            var _expires = new Date(Date.now()-24*60*60*1000).toUTCString()
+            document.cookie = this.name + '=' + this.value + '; expires=' + _expires + ';'
+        } else {
+            console.log("The cookie " + this.name + " does not exist")
+        }
+    }
 }
