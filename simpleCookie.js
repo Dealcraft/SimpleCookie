@@ -54,4 +54,11 @@ class SimpleCookie {
             console.log("The cookie " + this.name + " does not exist")
         }
     }
+
+    setExpiration(newTime, refresh=true){
+        this.expires = newTime
+        if (refresh) {
+            this.setCookie()
+        }
+    }
 }
