@@ -80,4 +80,11 @@ class SimpleCookie {
             this.setCookie()
         }
     }
+
+    setSecure(secure, refresh=true){
+        this.secure = secure
+        if (refresh) {
+            this.setCookie()
+        }
+    }
 }
