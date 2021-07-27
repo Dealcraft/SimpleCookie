@@ -94,4 +94,11 @@ class SimpleCookie {
             this.setCookie()
         }
     }
+
+    setPath(path, refresh=true){
+        this.path = path
+        if (refresh) {
+            this.setCookie()
+        }
+    }
 }
