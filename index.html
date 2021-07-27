@@ -12,8 +12,13 @@
     <script>
         var expires = new Date(Date.now()+24*60*60*1000).toUTCString()
         const cookie = new SimpleCookie("name", "value", expires)
+        const body = document.querySelector('body')
         
         cookie.setCookie()
+        
+        const paragraph = document.createElement('p')
+        paragraph.innerHTML = cookie.getValue()
+        body.appendChild(paragraph)
 
         setTimeout( () => {
             var value = "testBla"
