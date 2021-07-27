@@ -53,6 +53,11 @@ class SimpleCookie {
         }
     }
 
+    getValue(){
+        const _cookieValue = document.cookie.split('; ').find(row => row.startsWith(this.name + '=')).split('=')[1]
+        return _cookieValue
+    }
+
     delete(){
         if (document.cookie.split(';').some((item) => item.trim().startsWith(this.name + '='))) {
             var _expires = new Date(Date.now()-24*60*60*1000).toUTCString()
