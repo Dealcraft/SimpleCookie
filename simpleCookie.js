@@ -68,4 +68,11 @@ class SimpleCookie {
             this.setCookie()
         }
     }
+
+    setSameSite(sameSite, refresh=true){
+        this.sameSite = sameSite
+        if (refresh) {
+            this.setCookie()
+        }
+    }
 }
