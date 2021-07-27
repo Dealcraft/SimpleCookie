@@ -87,4 +87,11 @@ class SimpleCookie {
             this.setCookie()
         }
     }
+
+    setDomain(domain, refresh=true){
+        this.domain = domain
+        if (refresh) {
+            this.setCookie()
+        }
+    }
 }
