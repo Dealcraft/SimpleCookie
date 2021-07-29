@@ -31,8 +31,16 @@
         }, 10000)
 
         setTimeout( () => {
-            cookie.delete()
+            cookie.setSameSite("Strict", true)
         }, 15000)
+
+        setTimeout( () => {
+            cookie.setSecure(true, true)
+        }, 20000)
+
+        setTimeout( () => {
+            cookie.delete()
+        }, 25000)
     </script>
 
 </body>

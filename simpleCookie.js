@@ -73,4 +73,32 @@ class SimpleCookie {
             this.setCookie()
         }
     }
+
+    setSameSite(sameSite, refresh=true){
+        this.sameSite = sameSite
+        if (refresh) {
+            this.setCookie()
+        }
+    }
+
+    setSecure(secure, refresh=true){
+        this.secure = secure
+        if (refresh) {
+            this.setCookie()
+        }
+    }
+
+    setDomain(domain, refresh=true){
+        this.domain = domain
+        if (refresh) {
+            this.setCookie()
+        }
+    }
+
+    setPath(path, refresh=true){
+        this.path = path
+        if (refresh) {
+            this.setCookie()
+        }
+    }
 }
